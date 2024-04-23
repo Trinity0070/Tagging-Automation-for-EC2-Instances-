@@ -26,8 +26,12 @@ def lambda_handler(event, context):
         
         for tag in tags:
             if tag['Value'] == 'BC-1234':
-                create_tag = ec2_client.create_tags(Resources=[instance_id], Tags=[{'Key': 'Environment', 'Value': 'sandbox'}])
+                create_tag = ec2_client.create_tags(Resources=[instance_id], Tags=[{'Key': 'Environment', 'Value': 'Sandbox'}, {'Key': 'Project', 'Value': 'CDN'}, 
+                                                                                   {'Key': 'MachineRole', 'Value': 'EBMachine'}, {'Key': 'Maturity', 'Value': 'Sandbox'}, 
+                                                                                   {'Key': 'ChargeCode', 'Value': '00000.AAAAA.99999'}, {'Key': 'Owner', 'Value': 'support@support.com'}])
             elif tag['Value'] == 'BC-5678':
-                create_tag = ec2_client.create_tags(Resources=[instance_id], Tags=[{'Key': 'Environment', 'Value': 'production'}])
+                create_tag = ec2_client.create_tags(Resources=[instance_id], Tags=[{'Key': 'Environment', 'Value': 'Production'}, {'Key': 'Project', 'Value': 'CDN'}, 
+                                                                                   {'Key': 'MachineRole', 'Value': 'EBMachine'}, {'Key': 'Maturity', 'Value': 'Production'}, 
+                                                                                   {'Key': 'ChargeCode', 'Value': '00000.AAAAA.99999'}, {'Key': 'Owner', 'Value': 'support@support.com'}])
   
     

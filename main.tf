@@ -15,7 +15,18 @@ resource "aws_cloudwatch_event_rule" "ec2_run_instance_rule" {
 {
   "source": [
     "aws.ec2"
-  ]
+  ],
+  "detail-type": [
+    "AWS API Call via CloudTrail"
+  ],
+  "detail": {
+    "eventSource": [
+      "ec2.amazonaws.com"
+    ],
+    "eventName": [
+      "RunInstances "
+    ]
+  }
 }
 PATTERN
 }
